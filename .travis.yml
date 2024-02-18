@@ -5,11 +5,12 @@ install:
   - python3 -m venv venv
   - source venv/bin/activate
   - pip install -r requirements.txt
-  - pip install pyinstaller  # Add this line to install PyInstaller
+  - pip install pyinstaller  # Install PyInstaller separately
+  - hash -r  # Refresh the shell to recognize the new command
 
 script:
-  - python3 -m pyinstaller --version
-  - python3 -m pyinstaller --onefile main.py
+  - pyinstaller --version  # Check PyInstaller version
+  - pyinstaller --onefile main.py
 
 after_success:
   - mkdir deploy
