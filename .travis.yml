@@ -8,6 +8,7 @@ install:
   - pip install pyinstaller  # Add this line to install PyInstaller
 
 script:
+  - python3 -m pyinstaller --version
   - python3 -m pyinstaller --onefile main.py
 
 after_success:
