@@ -5,6 +5,7 @@ install:
   - python3 -m venv venv
   - source venv/bin/activate
   - pip install -r requirements.txt
+  - pip install pyinstaller  # Add this line to install PyInstaller
 
 script:
   - python3 -m pyinstaller --onefile main.py
