@@ -1,0 +1,15 @@
+os: osx
+language: shell
+
+install:
+  - python3 -m venv venv
+  - source venv/bin/activate
+  - pip install -r requirements.txt
+
+script:
+  - python3 -m pyinstaller --onefile main.py
+
+after_success:
+  - mkdir deploy
+  - mv dist/main deploy/
+  - hdiutil create -format UDZO -srcfolder deploy -ov -volname "Py-Clock" "Py-Clock.dmg"
